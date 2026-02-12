@@ -146,6 +146,55 @@ scenes/
 
 ```
 
+## 8. Project Settings You Should Know
+Access via: Project → Project Settings
+
+Important Settings:
+1. Display:
+- Window width/height (e.g., 1920x1080)
+- Stretch mode (how game scales on different screens)
+
+2. Input Map:
+
+Define controls (W/A/S/D, arrow keys, etc.)
+We'll use this when learning user input
+
+3. Physics:
+
+Gravity, collision layers
+Default settings are usually fine
+
+
+9. Best Practices
+DO:
+✅ Create folder structure BEFORE building
+✅ Name files descriptively
+✅ Commit to Git regularly
+✅ Keep one script per scene when starting
+✅ Organize assets by type
+✅ Use res:// paths in code
+DON'T:
+❌ Put everything in root folder
+❌ Edit .import/ or .uid files
+❌ Edit project.godot manually
+❌ Use spaces in file names (use snake_case)
+❌ Forget to save scenes after changes
+
+10. Common Beginner Mistakes
+Mistake 1: Not organizing from the start
+Problem: Files everywhere, hard to find things
+Solution: Create scenes/, scripts/, assets/ folders immediately
+Mistake 2: Moving files manually in file explorer
+Problem: Breaks references, scripts stop working
+Solution: Always move files in Godot's FileSystem panel (right-click → Move/Rename)
+Mistake 3: Forgetting to save
+Problem: Changes don't persist
+Solution: Always Ctrl+S after editing scenes or scripts
+Mistake 4: Not using Git
+Problem: Can't undo mistakes, lose work
+Solution: Commit frequently
+
+
 
 
 
