@@ -111,7 +111,3 @@ catch-falling-objects/
 
 Monalisa Sabina - Learning game development with Godot
 
----
-
-**Current Status:** Week 1 - Learning nodes & scenes fundamentals  
-**Last Updated:** [Current Date]
