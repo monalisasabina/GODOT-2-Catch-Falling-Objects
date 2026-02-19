@@ -121,3 +121,26 @@ CharacterBody2D (handles movement/physics)
 ├── Sprite2D (visual appearance)
 └── CollisionShape2D (collision detection)
 ```
+
+## Part 5: Understanding Scene Files (.tscn)
+- When you save a scene, Godot creates a .tscn file. 
+
+- It's a text file that describes your scene structure.
+
+- Example: What's inside player.tscn?
+```
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_abc123")
+modulate = Color(0, 0.5, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xyz789")
+```
+
+It describes:
+1. What nodes exist (CharacterBody2D, Sprite2D, CollisionShape2D)
+2. How they're organized (parent/child relationships)
+3. What properties they have (texture, color, shape)
+4. What resources they use (images, shapes, etc.)
