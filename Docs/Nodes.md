@@ -1,7 +1,7 @@
 # Nodes 
 
-## Node
-### 1. Definition
+## 1. Definition
+
 - is a single building block in Godot... like  a LEGO brick
 
 - each node has a specific job:
@@ -15,7 +15,9 @@
 
 - one node = one job
 
-### 2. nodes are like HTML elements
+---
+
+## 2. nodes are like HTML elements
 
 ```html
 <div>
@@ -32,7 +34,9 @@ Node2D (like <div>)
 
 **Each element/node does one thing, and you combine them to create something bigger.**
 
-### Part 3: The Node Tree (Hierarchy)
+---
+
+## Part 3: The Node Tree (Hierarchy)
 
 Nodes are organized in a **tree structure** with parents and children:
 ```
@@ -43,7 +47,7 @@ Parent Node
     └── Grandchild Node
 ```
 
-#### Example - A Simple Player:
+### Example - A Simple Player:
 ```
 CharacterBody2D (Parent - handles movement/physics)
 ├── Sprite2D (Child - shows player image)
@@ -55,9 +59,9 @@ CharacterBody2D (Parent - handles movement/physics)
 
 ---
 
-### Part 4: Why Use Parent-Child Relationships?
+## Part 4: Why Use Parent-Child Relationships?
 
-#### When the Parent Moves, Children Move Too!
+### When the Parent Moves, Children Move Too!
 
 **Example:**
 ```
@@ -77,3 +81,6 @@ Player (at position 100, 100)
 - When your body moves, everything moves with it
 
 ---
+
+
+
