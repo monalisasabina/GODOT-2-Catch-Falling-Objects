@@ -193,12 +193,3 @@ Solution: Always Ctrl+S after editing scenes or scripts
 Mistake 4: Not using Git
 Problem: Can't undo mistakes, lose work
 Solution: Commit frequently
-
-
-
-
-
-
-
-
-

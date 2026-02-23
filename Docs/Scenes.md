@@ -37,6 +37,7 @@ Area2D (detects when player touches it)
 **Once you save a scene, you can use it multiple times.**
 
 ### Create a Level Scene:
+
 ```
 Node2D (main level)
 ├── Coin1 (instance of coin.tscn)
@@ -65,24 +66,29 @@ Place Coins in Your Level (Do This Multiple Times):
 
 ## Part 4: Real Example - Building a Simple Player from earlier
 
-### What We Need:
+### What We Need
+
 - A way to move (CharacterBody2D)
 - A visual image (Sprite2D)
 - A way to detect collisions (CollisionShape2D)
 
-###  Create the root node:
+### Create the root node
+
 - Click the "+" tab (next to your current scene tab) OR go to Scene → New Scene
 - Click "Other Node" in "Create Root Node"
 - Search for "CharacterBody2D"
 - Click "Create"
 
-### Add child nodes:
+### Add child nodes
+
 - Right-click CharacterBody2D → "Add Child Node"
 - Search for "Sprite2D" → "Create"
 - Right-click CharacterBody2D → "Add Child Node"
 - Search for "CollisionShape2D" → "Create"
 
-###  Add an image to Sprite2D:
+###  Add an image to Sprite2D
+
+
 - Click Sprite2D in the tree
 - Look at Inspector (right panel)
 - Find "Texture" property
@@ -90,7 +96,8 @@ Place Coins in Your Level (Do This Multiple Times):
 - Select icon.svg from your assets
 - You'll see the Godot icon appear!
 
-###  Change the sprite color (to look like a player):
+###  Change the sprite color (to look like a player)
+
 - Keep Sprite2D selected
 - In Inspector, find "Modulate" property (under visibility)
 - Click the color box
@@ -98,29 +105,36 @@ Place Coins in Your Level (Do This Multiple Times):
 - This differentiates your player from other objects
 
 ### Make it smaller (optional):
+
 - Keep Sprite2D selected
 - In Inspector → Transform → Scale
 - Set both X and Y to 0.5 (or whatever size you want)
 
-### Set up the collision shape:
+### Set up the collision shape
+
 - Click CollisionShape2D
 - In Inspector, find "Shape" property
 - Click dropdown → "New RectangleShape2D"
 - Click the shape again to edit size
 - In the viewport, drag the orange handles to match your sprite size
 
-### Save the scene:
+### Save the scene
+
 - Press Ctrl+S
 - Name: player_character.tscn
 - Location: Scenes/characters/
 - Click "Save"
 
 ### Player structure
+
 ```
+
 CharacterBody2D (handles movement/physics)
 ├── Sprite2D (visual appearance)
 └── CollisionShape2D (collision detection)
 ```
+
+---
 
 ## Part 5: Understanding Scene Files (.tscn)
 - When you save a scene, Godot creates a .tscn file. 
@@ -137,10 +151,67 @@ modulate = Color(0, 0.5, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xyz789")
+
 ```
 
 It describes:
+
 1. What nodes exist (CharacterBody2D, Sprite2D, CollisionShape2D)
 2. How they're organized (parent/child relationships)
 3. What properties they have (texture, color, shape)
 4. What resources they use (images, shapes, etc.)
+
+---
+
+### Part 6:Whats's inside a .tscn file?
+
+Example:
+```
+[gd_scene load_steps=3 format=3 uid="uid://abc123"]
+
+[ext_resource type="Texture2D" uid="uid://xyz789" path="res://Assets/images/icon.svg" id="1_abc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_def456"]
+size = Vector2(64, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.2, 0.5, 1, 1)
+texture = ExtResource("1_abc")
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_def456")
+```
+
+- ```[gd_scene load_steps=3 format=3 uid="uid://abc123"]```
+Header info: scene format, unique ID
+
+- ```[ext_resource type="Texture2D" ... path="res://Assets/images/icon.svg"]```
+External resources the scene uses (your icon image)
+
+- ```[sub_resource type="RectangleShape2D" ...]```
+Internal resources created in this scene (collision shape)
+
+- ```[node name="CharacterBody2D" type="CharacterBody2D"]```
+Creates Sprite2D as child (parent="." means parent is root)
+Sets its properties (color, texture, scale)
+
+- ```[node name="CollisionShape2D" type="CollisionShape2D" parent="."]```
+Creates CollisionShape2D as child
+Links it to the shape resource
+
+The file contains:
+✅ Node hierarchy - which nodes exist and their parent-child relationships
+✅ Properties - position, color, scale, texture, etc.
+✅ Resource references - images, sounds, shapes used by the scene
+✅ Unique IDs - so Godot can track and link everything correctly
+
+The .tscn Extension:
+What does it stand for?
+
+T = Text
+SCN = Scene
+
+
